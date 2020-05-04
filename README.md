@@ -13,6 +13,7 @@ It is most commonly performed with volumetric computed tomography slice data in 
 
 
 ## Getting Started
+Unzip the `Arterielle-RAW.zip` file and replace the `./Arterielle` folder with the volumetric slice data content in the extracted folder
 ````
 python main.py
 ````
