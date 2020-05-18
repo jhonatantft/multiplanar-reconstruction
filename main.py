@@ -3,9 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def rename_files(path):
-    """ 
-    
-    """ 
     for count, filename in enumerate(os.listdir(path)):
         name, number = filename.split('.')
 
@@ -18,10 +15,10 @@ def buildsSectionByAxis(images, section, axis = None):
     newImage = []
     if not axis:
         return images[section]
-    if axis == 'x':
+    if axis == 'y':
         for image in images:
             newImage.append(image[section])
-    if axis == 'y':
+    if axis == 'z':
         for image in images:
             newLine = []
             for line in image:
@@ -50,10 +47,10 @@ def main():
     # rename_files('/home/jhonatan/Desktop/multiplanar-reconstruction/Arterielle/')
     frame = 350
     images = getImages('./Arterielle', [])
-    sectionZ = buildsSectionByAxis(images, frame)
-    sectionX = buildsSectionByAxis(images, frame, 'x')
+    sectionX = buildsSectionByAxis(images, frame)
     sectionY = buildsSectionByAxis(images, frame, 'y')
-    show_images([sectionZ, sectionX, sectionY])
+    sectionZ = buildsSectionByAxis(images, frame, 'z')
+    show_images([sectionX, sectionY, sectionZ])
 
 if __name__ == '__main__':
     main()
